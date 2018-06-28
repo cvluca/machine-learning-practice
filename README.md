@@ -1,2 +1,2 @@
 # machine-learning-practice
-For Machine Learning Course on Coursera
+Practice for Machine Learning Course on Coursera
