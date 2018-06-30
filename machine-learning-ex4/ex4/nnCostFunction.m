@@ -62,6 +62,13 @@ Theta2_grad = zeros(size(Theta2));
 %               and Theta2_grad from Part 2.
 %
 
+z2 = [ones(m, 1) X] * Theta1';
+a2 = sigmoid(z2);
+z3 = [ones(size(a2, 1), 1) a2] * Theta2';
+h = sigmoid(z3);
+
+
+J = (1/m) * (-y' * log(h) - (1 - y)' * log(1 - h));
 
 % -------------------------------------------------------------
 
