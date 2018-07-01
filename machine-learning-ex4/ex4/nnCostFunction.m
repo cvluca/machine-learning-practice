@@ -67,8 +67,13 @@ a2 = sigmoid(z2);
 z3 = [ones(size(a2, 1), 1) a2] * Theta2';
 h = sigmoid(z3);
 
+Y = zeros(m, num_labels);
+for i=1:m
+  Y(i,y(i)) = 1;
+end
 
-J = (1/m) * (-y' * log(h) - (1 - y)' * log(1 - h));
+J = (1/m) * sum(sum(-Y .* log(h) - (1 - Y) .* log(1 - h)));
+J = J + (lambda/(2*m))*(sum(sum(Theta1(:,2:end).^2))+sum(sum(Theta2(:,2:end).^2)));
 
 % -------------------------------------------------------------
 
